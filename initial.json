@@ -1,0 +1,20 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$216000$EOpKlytMDOC6$mTKI1nmFNycFL21j35MzgC4Tacllkd3ELSIsSFHHbkM=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@123.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-03-06T07:10:00.793Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
