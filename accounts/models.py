@@ -6,6 +6,12 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     pass
 
+    def is_student(self):
+        return bool(getattr(self, "student", None))
+
+    def is_teacher(self):
+        return bool(getattr(self, "teacher", None))
+
 
 class Student(User):
     fees = models.IntegerField()
@@ -18,17 +24,15 @@ class Student(User):
 
 class Teacher(User):
     salary = models.IntegerField()
+    subjects = models.ManyToManyField('Subject', related_name='teachers', blank=True)
 
     class Meta:
         verbose_name = 'teacher'
         verbose_name_plural = 'teachers'
 
 
-
 class Subject(models.Model):
     name =  models.CharField(max_length=64)
-    students = models.ManyToManyField('Student', related_name='subjects')
-    teachers = models.ManyToManyField('Teacher', related_name='subjects')
 
     def __str__(self):
         return self.name

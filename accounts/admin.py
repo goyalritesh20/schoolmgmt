@@ -7,4 +7,5 @@ User = get_user_model()
 admin.site.register(models.Student)
 admin.site.register(models.Teacher)
 admin.site.register(models.Subject)
-admin.site.register(User)
+# admin.site.register(User)
+
