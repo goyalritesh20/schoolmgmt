@@ -21,6 +21,14 @@ class TeacherSerializer(serializers.ModelSerializer):
         return obj.first_name
 
 
+class TeacherUpdateSerializer(serializers.ModelSerializer):
+    subjects = serializers.PrimaryKeyRelatedField(many=True, queryset=models.Subject.objects.all(), required=False)
+
+    class Meta:
+        model = models.Teacher
+        fields = ['subjects',]
+
+
 class StudentSerializer(serializers.ModelSerializer):
     teachers = TeacherSerializer(many=True)
     student_name = serializers.SerializerMethodField('get_first_name')  #name alias

@@ -26,3 +26,27 @@ class StudentDetailAPI(APIView):
         student = self.get_object(pk)
         serializer = serializers.StudentSerializer(student)
         return Response(serializer.data)
+
+
+class TeacherDetailAPI(APIView):
+
+    def get_object(self, pk):
+        try:
+            return Teacher.objects.get(pk=pk)
+        except Teacher.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        teacher = self.get_object(pk)
+        serializer = serializers.TeacherSerializer(teacher)
+        return Response(serializer.data)
+
+    
+    def put(self, request, pk, format=None):
+        teacher = self.get_object(pk)
+        serializer = serializers.TeacherUpdateSerializer(teacher, data=request.data)
+        if serializer.is_valid():
+            teacher = serializer.save()
+            serializer = serializers.TeacherSerializer(teacher)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
