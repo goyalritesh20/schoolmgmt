@@ -9,8 +9,30 @@ from accounts.models import Student, Teacher, Subject
 from accounts import serializers
 from rest_framework import permissions
 from accounts.permissions import StudentOnlyPermission, TeacherOnlyPermission
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+@login_required
+def home_view(request):
+    if not request.user.is_superuser:
+        return HttpResponse('Only Admin has access to view this page.')
+
+    students = Student.objects.all()
+
+    student_subjects = []
+    for student in students:
+        subnames = []
+        teachers = student.teachers.all()
+        for teacher in teachers:
+            subjects = teacher.subjects.all()
+            subnames += [sub.name for sub in subjects]
+        subnames = list(set(subnames))
+        student_subjects.append( (student, teachers, subnames) )
+
+    ctx = {'students_data': student_subjects }
+    return render(request,'report.html',ctx)
+
 
 class StudentDetailAPI(APIView):
 

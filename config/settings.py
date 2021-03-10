@@ -141,3 +141,5 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+LOGIN_URL = '/admin/login/'
