@@ -1,20 +1,161 @@
 [
 {
-    "model": "accounts.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$216000$EOpKlytMDOC6$mTKI1nmFNycFL21j35MzgC4Tacllkd3ELSIsSFHHbkM=",
-        "last_login": null,
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "email": "admin@123.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2021-03-06T07:10:00.793Z",
-        "groups": [],
-        "user_permissions": []
-    }
+  "model": "accounts.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$EOpKlytMDOC6$mTKI1nmFNycFL21j35MzgC4Tacllkd3ELSIsSFHHbkM=",
+    "last_login": "2021-03-10T04:40:56.903Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Admin",
+    "last_name": "",
+    "email": "admin@123.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-03-06T07:10:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$iZGGhzKv4giv$7fUXKUAEjvOXjAxswkODCUsTmGKEwVVAgHUv9pU2ggs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ritesh",
+    "first_name": "Ritesh",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-03-08T11:04:16.856Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$1qgsa9niJgCI$sOi3bv1+t69vHu/yq5doHoLkXRSgdXKbhNVw1aTZXEM=",
+    "last_login": "2021-03-10T04:42:02.881Z",
+    "is_superuser": false,
+    "username": "ashish",
+    "first_name": "Ashish",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-03-08T11:07:56.766Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$qVIOTne9Qy8w$QU6ooQSZkqSm30ID0HW8YUYtWJue23hGs4F+piwYI8w=",
+    "last_login": "2021-03-10T04:44:25.086Z",
+    "is_superuser": false,
+    "username": "abhinay",
+    "first_name": "Abhinay",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-03-08T11:47:16Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$LrsiAeaN0dar$Wbu0VmPoDzG8QqXdkfEHsChH9MWKLyuwHYM97b4TCNo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "vipalav",
+    "first_name": "Vipalav",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-03-08T11:48:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.student",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "fees": 100,
+    "teachers": [
+      1
+    ]
+  }
+},
+{
+  "model": "accounts.student",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "fees": 200,
+    "teachers": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "accounts.teacher",
+  "pk": 1,
+  "fields": {
+    "user": 5,
+    "salary": 5000,
+    "subjects": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "accounts.teacher",
+  "pk": 2,
+  "fields": {
+    "user": 4,
+    "salary": 900,
+    "subjects": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "accounts.subject",
+  "pk": 1,
+  "fields": {
+    "name": "Maths"
+  }
+},
+{
+  "model": "accounts.subject",
+  "pk": 2,
+  "fields": {
+    "name": "English"
+  }
+},
+{
+  "model": "accounts.subject",
+  "pk": 3,
+  "fields": {
+    "name": "Science"
+  }
 }
 ]

@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from accounts.models import Student, Teacher, Subject
 from accounts import serializers
 from rest_framework import permissions
-from accounts.permissions import StudentOnlyPermission
+from accounts.permissions import StudentOnlyPermission, TeacherOnlyPermission
 
 # Create your views here.
 
@@ -30,6 +30,8 @@ class StudentDetailAPI(APIView):
 
 class TeacherDetailAPI(APIView):
 
+    permission_classes = [permissions.IsAuthenticated, TeacherOnlyPermission]
+
     def get_object(self, pk):
         try:
             return Teacher.objects.get(pk=pk)
@@ -42,9 +44,9 @@ class TeacherDetailAPI(APIView):
         return Response(serializer.data)
 
     
-    def put(self, request, pk, format=None):
+    def patch(self, request, pk, format=None):
         teacher = self.get_object(pk)
-        serializer = serializers.TeacherUpdateSerializer(teacher, data=request.data)
+        serializer = serializers.TeacherUpdateSerializer(teacher, data=request.data, partial=True)
         if serializer.is_valid():
             teacher = serializer.save()
             serializer = serializers.TeacherSerializer(teacher)
